@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILIP | Geospatial Dashboard</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="side-nav">
+        <div class="logo">PHILIP</div>
+        <ul class="nav-links">
+            <li class="active">Map View</li>
+            <li>Reports</li>
+            <li>Settings</li>
+            <li id="logoutBtn" style="cursor: pointer; color: #ff4757; margin-top: auto;">Logout</li>
+        </ul>
+    </nav>
+
+    <main class="map-container">
+        <div id="mapLoader" class="map-loader">
+            <div class="spinner"></div>
+            <span>Initializing 3D Environment...</span>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="hazard-panel">
+            <h3>Project NOAH Layers</h3>
+            <div class="layer-item">
+                <input type="checkbox" id="floodLayer">
+                <label for="floodLayer">Flood Hazard (100-year)</label>
+            </div>
+            <div class="layer-item">
+                <input type="checkbox" id="landslideLayer">
+                <label for="landslideLayer">Landslide Hazard</label>
+            </div>
+            <div class="legend">
+                <span>Hazard Level:</span>
+                <span style="color: #2ed573; font-weight: bold;">Low</span>
+                <span style="color: #ffa502; font-weight: bold;">Med</span>
+                <span style="color: #ff4757; font-weight: bold;">High</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/OSMBuildings-Leaflet.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

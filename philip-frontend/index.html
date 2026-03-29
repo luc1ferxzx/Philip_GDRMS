@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILIP Auth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="planet-bg"></div>
+    <div style="position: absolute; top: 40px; left: 40px; letter-spacing: 5px; font-weight: 300; color: white;">PHILIP</div>
+    
+    <div class="container">
+        <div class="card">
+            <div id="statusMessage" class="status-msg" style="display: none;"></div>
+
+            <div class="tabs">
+                <button id="signupTab" class="active">SIGN UP</button>
+                <button id="loginTab">SIGN IN</button>
+            </div>
+
+            <h2 id="formTitle" style="font-weight: 400; margin-bottom: 20px;">Create an account</h2>
+
+            <form id="authForm">
+                <div id="nameFields">
+                    <input type="text" placeholder="First name" id="first_name">
+                    <input type="text" placeholder="Last name" id="last_name">
+                </div>
+                <input type="email" placeholder="Enter your email" id="email" required>
+                <input type="text" placeholder="Phone number" id="phone">
+                <input type="password" placeholder="Password" id="password" required>
+
+                <button type="submit" id="submitBtn">Create an account</button>
+            </form>
+
+            <div class="divider"><span>OR SIGN IN WITH</span></div>
+            <div class="social-login">
+                <button type="button" class="social-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Color_Icon.svg" alt="Google">
+                </button>
+                <button type="button" class="social-btn">
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Phone_icon.png" alt="Phone" class="phone-icon" style="width: 20px;">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

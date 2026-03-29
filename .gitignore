@@ -1,0 +1,9 @@
+# Ignore backend dependencies
+philip-backend/node_modules/
+
+# Ignore private environment variables
+philip-backend/.env
+
+# Ignore OS metadata
+.DS_Store
+Thumbs.db
