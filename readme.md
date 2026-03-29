@@ -48,19 +48,6 @@ The Philippines faces an average of **20 typhoons annually**. Current systems of
 
 -----
 
-## 📂 System Architecture
-
-```text
-PHILIP/
-├── philip-backend/         # Node.js API Gateway & Auth
-├── philip-risk-engine/     # Python FastAPI + ML Risk Calculation
-├── philip-mobile-app/      # Flutter Application (Android/iOS)
-├── philip-lgu-dashboard/   # React Dashboard for DRRM Officers
-└── data/                   # NAMRIA DEMs, NOAH Shapefiles, OSM Road Networks
-```
-
------
-
 ## ⚙️ Setup & Installation
 
 ### 1\. Database Setup
