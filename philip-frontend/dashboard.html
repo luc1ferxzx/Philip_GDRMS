@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILIP | 3D Risk Dashboard</title>
+    
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.116/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.116/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #cesiumContainer {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #toolbar {
+            position: absolute;
+            top: 20px;
+            left: 280px; /* Gives your sidebar some breathing room */
+            background: rgba(30, 30, 30, 0.85);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+        .cesium-button {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .infoPanel {
+            color: #00d4ff;
+            font-size: 12px;
+            margin-top: 10px;
+            visibility: hidden;
+            font-weight: bold;
+        }
+        #loadingOverlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            color: white;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <div id="loadingOverlay">
+        <h1>Loading PHILIP 3D...</h1>
+    </div>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2 style="color: #00d4ff;">Project PHILIP</h2>
+            <p>Liloan, Cebu Dashboard</p>
+            <hr>
+            <div class="control-group">
+                <h3>Map Style</h3>
+                <select id="mapSelector" class="cesium-button" style="width: 100%; margin-bottom: 10px;">
+                    <option value="esriWorldImagery">🛰️ Esri Satellite (NOAH Best)</option>
+                    <option value="esriWorldStreet">🗺️ Esri Street Map (Labels)</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <h3>Hazard Layers</h3>
+                <label class="switch">
+                    <input type="checkbox" id="floodToggle">
+                    <span class="slider"></span> NOAH Flood
+                </label>
+                <br><br>
+                <label class="switch">
+                    <input type="checkbox" id="landslideToggle">
+                    <span class="slider"></span> NOAH Landslide
+                </label>
+                <br><br>
+                <label class="switch">
+                    <input type="checkbox" id="stormSurgeToggle">
+                    <span class="slider"></span> NOAH Storm Surge
+                </label>
+            </div>
+            <br>
+            <button id="logoutBtn" class="logout-danger">Logout</button>
+        </aside>
+
+        <main id="cesiumContainer">
+            <div id="toolbar">
+                <label style="color: white; font-size: 12px; display: block; margin-bottom: 5px;">Building Analysis:</label>
+                <select class="cesium-button" id="dropdown">
+                    <option value="0">Color By Height (Risk)</option>
+                    <option value="1">Color By Distance to Epicenter</option>
+                    <option value="2">Highlight Residential Areas</option>
+                    <option value="3">Show Office Buildings Only</option>
+                    <option value="4">Show Apartments Only</option>
+                </select>
+                <table class="infoPanel">
+                    <tbody>
+                        <tr>
+                            <td>📍 Click a building to set epicenter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="./dashboard.js" type="module"></script>
+</body>
+</html>

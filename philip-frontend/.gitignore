@@ -1,0 +1,10 @@
+# Ignore raw GIS data
+assets/*.shp
+assets/*.dbf
+assets/*.shx
+assets/*.prj
+assets/*.xml
+assets/*.cpg
+
+# Keep the converted GeoJSONs
+!assets/*.geojson
